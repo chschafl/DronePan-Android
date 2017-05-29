@@ -212,6 +212,10 @@ public class Settings extends BaseObservable {
             case R.id.shootBySwitch:
                 setShootRowByRow(isChecked);
                 break;
+
+            case R.id.useToYawSwitch:
+                setUseGimbalToYaw(isChecked);
+                break;
         }
     }
 

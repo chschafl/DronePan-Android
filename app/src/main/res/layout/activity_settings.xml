@@ -304,6 +304,48 @@
                         android:layout_centerInParent="true">
 
                         <TextView
+                            android:text="Use To Yaw: "
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:text="Gimbal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{settings.useGimbalToYaw ? View.VISIBLE : View.GONE}"/>
+
+                        <TextView
+                            android:text="Aircraft"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{settings.useGimbalToYaw ? View.GONE : View.VISIBLE}"/>
+
+                    </LinearLayout>
+
+                    <Switch
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="@{settings.canGimbalYaw}"
+                        android:id="@+id/useToYawSwitch"
+                        android:checked="@{settings.useGimbalToYaw}"
+                        android:onCheckedChanged="@{settings::checkedChanged}"
+                        android:layout_alignParentRight="true"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true">
+
+                        <TextView
                             android:text="Shoot: "
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
@@ -394,7 +436,6 @@
                         android:onClick="@{settings::onClicked}"/>
 
                 </LinearLayout>
-
             </LinearLayout>
         </ScrollView>
 
